@@ -14,3 +14,7 @@
 	font-size: 1.5rem;
 	color: cornsilk;
 }
+
+.item a.active {
+	color: goldenrod;
+}
