@@ -1,0 +1,38 @@
+.dialogs {
+  display: grid;
+  grid-template-columns:  1fr 2fr 10fr;
+}
+
+.avatarItems {
+  padding: 1rem;
+}
+
+.avatar {
+  width: 70px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.dialogItems {
+  font-size: large;
+  color: black;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+.dialog {
+  margin-top: 20px;
+  margin-bottom: 70px;
+}
+
+.dialog a {
+  text-decoration: none;
+}
+
+.dialog a.active{
+  color: green;
+}
+
+.messages {
+  padding: 1rem;
+}
