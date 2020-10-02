@@ -29,10 +29,20 @@
   text-decoration: none;
 }
 
-.dialog a.active{
-  color: green;
+.dialog a:hover {
+  color: black;
 }
 
-.messages {
-  padding: 1rem;
+.dialog a.active{
+  color: black;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 0 5px;
+}
+
+.messages textarea {
+  width: 300px;
+  height: 100px;
+  padding: 10px;
+  margin-top: 30px;
 }
