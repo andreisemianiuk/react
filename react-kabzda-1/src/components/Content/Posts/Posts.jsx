@@ -1,19 +1,17 @@
 import s from "./Posts.module.css";
 import React from "react";
 import Post from "./Post/Post";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../Redux/contentReducer";
 
 const Posts = (props) => {
   let postsElement = props.contentPage.posts.map(p => <Post message={p.message} ava={p.ava} id={p.id}/>)
 
   let addPost = () => {
-    props.dispatch(addPostActionCreator());
+    props.addPost();
   }
 
   let onChangeText = (e) => {
     let text = e.target.value;
-    let newVar = updateNewPostTextActionCreator(text);
-    props.dispatch(newVar);
+    props.updateNewPostText(text);
   }
 
   return (

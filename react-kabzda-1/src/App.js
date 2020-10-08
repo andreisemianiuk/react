@@ -17,10 +17,8 @@ function App(props) {
         <Header/>
         <Nav/>
         <div className='app-wrapper-content'>
-          <Route path='/content' render={ () => <Content contentPage={props.state.contentPage}
-                                                         dispatch={props.dispatch} /> }/>
-          <Route path='/dialogs' render={ () => <Dialogs dialogsPage={props.state.dialogsPage}
-                                                         dispatch={props.dispatch} /> } />
+          <Route path='/content' render={ () => <Content store={props.store} /> }/>
+          <Route path='/dialogs' render={ () => <Dialogs store={props.store} /> } />
           <Route path='/music' component={Music}/>
           <Route path='/friends' component={Friends}/>
           <Route path='/settings' component={Settings}/>
