@@ -9,16 +9,18 @@ import Friends from "./components/Friends/Friends";
 import Settings from "./components/Settings/Settings";
 import {Route} from "react-router-dom";
 import {BrowserRouter} from "react-router-dom";
+import UsersContainer from "./components/Users/UsersContainer";
 
-function App(props) {
+function App() {
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
         <Header/>
         <Nav/>
         <div className='app-wrapper-content'>
-          <Route path='/content' render={ () => <Content store={props.store} /> }/>
-          <Route path='/dialogs' render={ () => <Dialogs store={props.store} /> } />
+          <Route path='/content' render={ () => <Content  /> }/>
+          <Route path='/dialogs' render={ () => <Dialogs /> } />
+          <Route path='/users' render={ () => <UsersContainer /> } />
           <Route path='/music' component={Music}/>
           <Route path='/friends' component={Friends}/>
           <Route path='/settings' component={Settings}/>

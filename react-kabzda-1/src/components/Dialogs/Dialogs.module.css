@@ -23,6 +23,7 @@
 .dialog {
   margin-top: 20px;
   margin-bottom: 70px;
+  margin-left: 20px;
 }
 
 .dialog a {
@@ -40,7 +41,7 @@
   padding: 0 5px;
 }
 
-.messages textarea {
+textarea {
   width: 300px;
   height: 100px;
   padding: 10px;
@@ -48,6 +49,6 @@
   cursor: pointer;
 }
 
-.messages button {
+button {
   cursor: pointer;
 }
