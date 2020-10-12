@@ -1,0 +1,45 @@
+.users {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  padding: 20px;
+  width: 800px;
+  background-color: aqua;
+  border: 5px solid wheat;
+}
+
+.photo {
+  height: 150px;
+  border-radius: 50%;
+}
+
+.btn {
+  margin-left: 10px;
+}
+
+.btn button {
+  font-size: 20px;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+.fullName {
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: auto 0;
+}
+
+.fullName span {
+  padding: 5px;
+}
+
+.rightSide {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.rightSide span {
+  padding: 5px;
+}
