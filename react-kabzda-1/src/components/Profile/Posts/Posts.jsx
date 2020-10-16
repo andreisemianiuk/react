@@ -3,7 +3,7 @@ import React from "react";
 import Post from "./Post/Post";
 
 const Posts = (props) => {
-  let postsElement = props.contentPage.posts.map(p => <Post message={p.message} ava={p.ava} id={p.id}/>)
+  let postsElement = props.profilePage.posts.map(p => <Post message={p.message} ava={p.ava} id={p.id} key={p.id}/>)
 
   let addPost = () => {
     props.addPost();
@@ -17,7 +17,7 @@ const Posts = (props) => {
   return (
     <div className={s.posts}>
       <h3>My Posts</h3>
-      <textarea onChange={onChangeText} value={props.contentPage.newPostText}/>
+      <textarea onChange={onChangeText} value={props.profilePage.newPostText}/>
       <div>
         <button onClick={addPost}>Send</button>
       </div>

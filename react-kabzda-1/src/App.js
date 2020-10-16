@@ -1,24 +1,24 @@
 import React from 'react';
+import {BrowserRouter} from "react-router-dom";
+import {Route} from "react-router-dom";
 import './App.css';
-import Content from './components/Content/Content';
-import Header from './components/Header/Header';
 import Nav from './components/Nav/Nav';
 import Dialogs from "./components/Dialogs/Dialogs";
 import Music from "./components/Music/Music";
 import Friends from "./components/Friends/Friends";
 import Settings from "./components/Settings/Settings";
-import {Route} from "react-router-dom";
-import {BrowserRouter} from "react-router-dom";
+import ProfileContainer from './components/Profile/ProfileContainer';
 import UsersContainer from "./components/Users/UsersContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 function App() {
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
-        <Header/>
+        <HeaderContainer />
         <Nav/>
         <div className='app-wrapper-content'>
-          <Route path='/content' render={ () => <Content  /> }/>
+          <Route path='/profile/:userId?' render={ () => <ProfileContainer  /> }/>
           <Route path='/dialogs' render={ () => <Dialogs /> } />
           <Route path='/users' render={ () => <UsersContainer /> } />
           <Route path='/music' component={Music}/>

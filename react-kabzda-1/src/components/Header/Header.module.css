@@ -1,8 +1,35 @@
 .header {
 	grid-area: h;
-	background-color: white;
+	background-color: firebrick;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .header img {
-	width: 15vw;
+	width: 16.5vw;
+}
+
+.login {
+	padding-right: 20px;
+}
+
+.user {
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+}
+
+.user img {
+	width: 50px;
+	border: 2px solid white;
+	border-radius: 50%;
+	margin-left: 10px;
+}
+
+.login a {
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+	text-decoration: none;
 }

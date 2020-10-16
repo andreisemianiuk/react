@@ -8,6 +8,19 @@
   border: 5px solid wheat;
 }
 
+.pageNums {
+  text-align: center;
+}
+
+.pageNums span {
+  cursor: pointer;
+  /*display: none;*/
+}
+
+.selected {
+  font-weight: bold;
+}
+
 .photo {
   height: 150px;
   border-radius: 50%;
