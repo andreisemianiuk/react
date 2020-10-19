@@ -12,14 +12,11 @@ import youtube from "../../assets/images/youtube.png";
 import linkedin from "../../assets/images/linkedin.png";
 import website from "../../assets/images/web-site.png";
 
-
 const ProfileInfo = (props) => {
   if (!props.profile) {
     return <Preloader/>
   }
-  let jobStatus = (props.profile.lookingForAJob)
-    ? withJob
-    : withoutJob;
+  let jobStatus = (props.profile.lookingForAJob) ? withJob : withoutJob;
 
   return (
     <div className={s.info}>

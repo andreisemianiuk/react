@@ -1,11 +1,11 @@
 import React from "react";
-import MessageContainer from "./MessageContainer";
+import {MessageContainer} from "./MessageContainer";
 
 const Dialogs = () => {
 
   return (
     <div>
-      <MessageContainer/>
+      <MessageContainer />
     </div>
   )
 }

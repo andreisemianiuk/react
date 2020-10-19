@@ -1,12 +1,11 @@
 import s from "./Dialogs.module.css";
 import React from "react";
-import DialogItem from "./DialogIstem";
+import DialogItem from "./DialogItem";
 import AvatarItem from "./AvatarItem";
 
 const MessageItem = (props) => {
-
   let dialogsElement = props.state.dialogs.map(d => <DialogItem name={d.name} id={d.id}
-                                                                            message={d.message}/>)
+                                                                message={d.message}/>)
   let avatarsElement = props.state.avatars.map(a => <AvatarItem avatar={a.avatar} alt={a.alt}/>)
 
   let sendMessage = () => {

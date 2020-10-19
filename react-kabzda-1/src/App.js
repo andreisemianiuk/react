@@ -10,6 +10,7 @@ import Settings from "./components/Settings/Settings";
 import ProfileContainer from './components/Profile/ProfileContainer';
 import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import LoginPage from "./components/Login/Login";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path='/music' component={Music}/>
           <Route path='/friends' component={Friends}/>
           <Route path='/settings' component={Settings}/>
+          <Route path='/login' component={LoginPage}/>
         </div>
       </div>
     </BrowserRouter>
