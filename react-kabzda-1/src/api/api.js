@@ -27,6 +27,18 @@ export const profileApi = {
   getProfile(id) {
     return instance.get(`profile/${id}`)
       .then(responce => responce.data)
+  },
+  getStatus(id) {
+    return instance.get(`profile/status/${id}`)
+      .then(responce => responce.data)
+  },
+  updateStatus(status) {
+    return instance.put(`profile/status`, {status})
+      .then(responce => responce.data)
+  },
+  updatePhoto(image) {
+    return instance.put(`profile/photo`, {image})
+      .then(responce => responce.data)
   }
 }
 
@@ -34,5 +46,11 @@ export const authApi = {
   getAuth() {
     return instance.get(`auth/me`)
       .then(response => response.data)
+  },
+  login(email, password, rememberMe = false) {
+    return instance.post(`auth/login`, {email, password, rememberMe})
+  },
+  logout() {
+    return instance.delete(`auth/login`)
   }
 }

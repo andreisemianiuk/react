@@ -1,32 +1,55 @@
-import React from 'react';
-import Profile from "./Profile";
-import {connect} from "react-redux";
-import {getProfile} from "../../Redux/profile-reducer";
-import {withRouter} from "react-router-dom";
-import {withAuthRedirect} from "../hoc/Hoc";
-import {compose} from "redux";
+  import React from 'react';
 
-class ProfileContainer extends React.Component {
-  componentDidMount() {
-    let userId = this.props.match.params.userId;
-    if (!userId) {
-      userId = 12041;
-    }
-    this.props.getProfile(userId);
+class ProfileStatus extends React.Component {
+  state = {
+    editMode: false,
+    status: this.props.status
   }
+
+  activateEditMode = () => {
+    this.setState({
+      editMode: true
+    })
+  }
+
+  deactivateEditMode = () => {
+    this.setState({
+      editMode: false
+    });
+    this.props.updateStatus(this.state.status)
+  }
+
+  onChangeText = (e) => {
+    this.setState({
+      status: e.currentTarget.value
+    })
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.status !== this.props.status) {
+      this.setState({
+        status: this.props.status
+      })
+    }
+  }
+
   render() {
     return (
-      < Profile {...this.props} />
+      <div>
+        {!this.state.editMode &&
+          <div>
+            <span onDoubleClick={this.activateEditMode}>{this.props.status || '______'}</span>
+          </div>
+        }
+        {this.state.editMode &&
+          <div>
+            <input onBlur={this.deactivateEditMode} onChange={this.onChangeText} autoFocus={true} value={this.state.status} />
+          </div>
+        }
+      </div>
     )
   }
 }
-
-let mapStateToProps = (state) => ({
-  profile: state.profilePage.profile
-})
-
-export default compose(
-  connect(mapStateToProps, {getProfile}),
-  withRouter,
-  withAuthRedirect
-)(ProfileContainer);
+//
+//
+export default ProfileStatus;

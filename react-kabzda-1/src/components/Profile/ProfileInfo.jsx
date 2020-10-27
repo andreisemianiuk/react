@@ -11,18 +11,21 @@ import instagram from "../../assets/images/instagram.png";
 import youtube from "../../assets/images/youtube.png";
 import linkedin from "../../assets/images/linkedin.png";
 import website from "../../assets/images/web-site.png";
+import ProfileStatus from "./ProfileStatus";
+import user from "../../assets/images/user.png"
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 const ProfileInfo = (props) => {
   if (!props.profile) {
     return <Preloader/>
   }
   let jobStatus = (props.profile.lookingForAJob) ? withJob : withoutJob;
-
+  let photo = props.profile.photos.small ? props.profile.photos.small : user
   return (
     <div className={s.info}>
       <div>
-        <img className={s.photo} src={props.profile.photos.large} alt='smth'/>
-        <div className={s.status}>{props.profile.aboutMe}</div>
+        <img className={s.photo} src={photo} alt='smth'/>
+        <div className={s.status}><ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/></div>
       </div>
       <div>
         <div className={s.jobStatus}>

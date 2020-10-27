@@ -1,26 +1,17 @@
 import s from "./Posts.module.css";
 import React from "react";
 import Post from "./Post/Post";
+import {PostsReduxForm} from "./Post/PostsForm";
 
 const Posts = (props) => {
   let postsElement = props.profilePage.posts.map(p => <Post message={p.message} ava={p.ava} id={p.id} key={p.id}/>)
 
-  let addPost = () => {
-    props.addPost();
-  }
-
-  let onChangeText = (e) => {
-    let text = e.target.value;
-    props.updateNewPostText(text);
-  }
+  const submit = values => props.addPost(values.postText)
 
   return (
     <div className={s.posts}>
       <h3>My Posts</h3>
-      <textarea onChange={onChangeText} value={props.profilePage.newPostText}/>
-      <div>
-        <button onClick={addPost}>Send</button>
-      </div>
+      <PostsReduxForm onSubmit={submit}/>
       {postsElement}
     </div>
   )

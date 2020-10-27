@@ -1,7 +1,8 @@
 import React from "react";
 import s from './Users.module.css';
 import userPhoto from '../../assets/images/user.png';
-import {Redirect, NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
+import PaginationTable from "./PaginationTable";
 
 let Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -10,15 +11,17 @@ let Users = (props) => {
     pages.push(i);
   }
 
-  if (!props.isAuth) return <Redirect to={'/login'} />
-
   return <div>
     <div className={s.pageNums}>
-      {pages.map(p =>
-        <span className={(props.currentPage === p) ? s.selected : null}
-              onClick={() => props.onPageChanged(p)}>{p}</span>
-      )}
+      <PaginationTable
+        itemsperpage={10}
+        nocolumns={2}
+        items={pages}
+        pagesspan={4}
+        props={props}
+      />
     </div>
+
     {
       props.users.map(u => <div key={u.id} className={s.users}>
         <div>

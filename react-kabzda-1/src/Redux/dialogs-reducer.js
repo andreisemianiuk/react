@@ -1,5 +1,4 @@
 const SEND_MESSAGE = 'SEND-MESSAGE';
-const UPDATE_NEW_DIALOG_TEXT = 'UPDATE-NEW-DIALOG-TEXT';
 
 let initialState = {
   dialogs: [
@@ -25,28 +24,18 @@ let initialState = {
       avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTMpxngDzweK9PjrcBaBt1eTTL6dymJAz1Tjw&usqp=CAU',
       alt: 'ava-4'
     }
-  ],
-  newDialogText: ''
+  ]
 };
 
 const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case SEND_MESSAGE:
       let newMessage = {
-        name: 'Vasya',
-        id: 1,
-        message: state.newDialogText,
+        message: action.newDialogText
       }
       return {
         ...state,
-        dialogs: [...state.dialogs, newMessage],
-        newDialogText: ''
-      }
-
-    case UPDATE_NEW_DIALOG_TEXT:
-      return  {
-        ...state,
-        newDialogText: action.newText
+        dialogs: [...state.dialogs, newMessage]
       }
 
     default:
@@ -54,7 +43,6 @@ const dialogsReducer = (state = initialState, action) => {
   }
 }
 
-export const sendMessage = () => ({type: SEND_MESSAGE});
-export const updateNewDialogText = (text) => ({type: UPDATE_NEW_DIALOG_TEXT, newText: text});
+export const sendMessage = (newDialogText) => ({type: SEND_MESSAGE, newDialogText});
 
 export default dialogsReducer;
