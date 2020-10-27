@@ -11,7 +11,7 @@ import instagram from "../../assets/images/instagram.png";
 import youtube from "../../assets/images/youtube.png";
 import linkedin from "../../assets/images/linkedin.png";
 import website from "../../assets/images/web-site.png";
-import ProfileStatus from "./ProfileStatus";
+// import ProfileStatus from "./ProfileStatus";
 import user from "../../assets/images/user.png"
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
