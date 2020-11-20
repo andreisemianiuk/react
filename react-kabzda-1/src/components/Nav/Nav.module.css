@@ -1,0 +1,20 @@
+.nav {
+	grid-area: n;
+	background-color: brown;
+}
+
+.item {
+	list-style-type: none;
+}
+
+.item a {
+	outline: none;
+	text-decoration: none;
+	text-transform: capitalize;
+	font-size: 1.5rem;
+	color: cornsilk;
+}
+
+.item a.active {
+	color: goldenrod;
+}
