@@ -9,8 +9,8 @@ const instance = axios.create({
 })
 
 export const usersApi =  {
-  getUsers(currentPage, pageSize) {
-    return instance.get(`users?page=${currentPage}&count=${pageSize}`)
+  getUsers(page, pageSize) {
+    return instance.get(`users?page=${page}&count=${pageSize}`)
       .then(response => response.data)
   },
   followUser(id) {
@@ -26,19 +26,19 @@ export const usersApi =  {
 export const profileApi = {
   getProfile(id) {
     return instance.get(`profile/${id}`)
-      .then(responce => responce.data)
+      .then(response => response.data)
   },
   getStatus(id) {
     return instance.get(`profile/status/${id}`)
-      .then(responce => responce.data)
+      .then(response => response.data)
   },
   updateStatus(status) {
     return instance.put(`profile/status`, {status})
-      .then(responce => responce.data)
+      .then(response => response.data)
   },
   updatePhoto(image) {
     return instance.put(`profile/photo`, {image})
-      .then(responce => responce.data)
+      .then(response => response.data)
   }
 }
 
