@@ -44,7 +44,7 @@ const profileReducer = (state = initialState, action) => {
 		case SET_PHOTO:
 			return {
 				...state,
-				image: 'https://st.joinsport.io/player/2174946/photo/5de7d76b38157_thumb.jpg'
+				profile: {...state.profile, photos: action.photos}
 			}
 		default:
 			return state;
@@ -54,7 +54,7 @@ const profileReducer = (state = initialState, action) => {
 export const addPost = (postText) => ({ type: ADD_POST, postText });
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile });
 export const setStatus = (status) => ({ type: SET_STATUS, status });
-export const setPhoto = (image) => ({ type: SET_PHOTO, image });
+export const setPhoto = (photos) => ({ type: SET_PHOTO, photos });
 
 export const getProfile = (userId) =>
 	async (dispatch) => {
@@ -76,11 +76,11 @@ export const updateStatus = (status) =>
 		}
 	}
 
-export const updatePhoto = (image) =>
+export const updatePhoto = (file) =>
 	async (dispatch) => {
-		let data = await profileApi.updatePhoto(image);
+		let data = await profileApi.updatePhoto(file);
 		if (data.resultCode === 0) {
-			dispatch(setPhoto(image));	
+			dispatch(setPhoto(data.photos));	
 		}
 		
 	}
