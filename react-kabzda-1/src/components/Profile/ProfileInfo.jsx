@@ -11,7 +11,6 @@ import instagram from "../../assets/images/instagram.png";
 import youtube from "../../assets/images/youtube.png";
 import linkedin from "../../assets/images/linkedin.png";
 import website from "../../assets/images/web-site.png";
-// import ProfileStatus from "./ProfileStatus";
 import user from "../../assets/images/user.png"
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
@@ -20,11 +19,20 @@ const ProfileInfo = (props) => {
     return <Preloader/>
   }
   let jobStatus = (props.profile.lookingForAJob) ? withJob : withoutJob;
-  let photo = props.profile.photos.small ? props.profile.photos.small : user
+	
+	const onMainPhotoSelected = (e) => {
+		if (e.target.files.length) {
+			props.updatePhoto(e.target.files[0]);
+		}
+	}
+
   return (
     <div className={s.info}>
       <div>
-        <img className={s.photo} src={photo} alt='smth'/>
+        <img className={s.photo} src={props.profile.photos.large || user} alt='smth'/>
+				<div className={s.choosePhoto}>
+					{props.isOwner && <input type='file' onChange={onMainPhotoSelected} />}
+				</div>
         <div className={s.status}><ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/></div>
       </div>
       <div>
