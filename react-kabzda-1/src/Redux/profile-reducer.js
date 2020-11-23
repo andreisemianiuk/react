@@ -80,7 +80,7 @@ export const updatePhoto = (file) =>
 	async (dispatch) => {
 		let data = await profileApi.updatePhoto(file);
 		if (data.resultCode === 0) {
-			dispatch(setPhoto(data.photos));	
+			dispatch(setPhoto(data.data.photos));	
 		}
 		
 	}

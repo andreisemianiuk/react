@@ -15,7 +15,7 @@ import user from "../../assets/images/user.png"
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 const ProfileInfo = (props) => {
-  if (!props.profile || !props.profile.photos) {
+  if (!props.profile) {
     return <Preloader/>
   }
   let jobStatus = (props.profile.lookingForAJob) ? withJob : withoutJob;
@@ -31,7 +31,7 @@ const ProfileInfo = (props) => {
       <div>
         <img className={s.photo} src={props.profile.photos.large || user} alt='smth'/>
 				<div className={s.choosePhoto}>
-				/	{props.isOwner && <input type='file' onChange={onMainPhotoSelected} />}
+					{props.isOwner && <input type='file' onChange={onMainPhotoSelected} />}
 				</div>
         <div className={s.status}><ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/></div>
       </div>
