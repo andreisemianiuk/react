@@ -44,7 +44,7 @@ const profileReducer = (state = initialState, action) => {
 		case SET_PHOTO:
 			return {
 				...state,
-				profile: {...state.profile, photos: action.photos}
+				profile: { ...state.profile, photos: action.photos }
 			}
 		default:
 			return state;
@@ -62,6 +62,14 @@ export const getProfile = (userId) =>
 		dispatch(setUserProfile(data));
 	}
 
+export const saveProfile = (profile) =>
+	async (dispatch, getState) => {
+		const userId = getState().auth.userId;
+		const data = await profileApi.saveProfile(profile);
+		if (data.resultCode === 0) {
+			dispatch(getProfile(userId));
+		}
+	}
 export const getStatus = (userId) =>
 	async (dispatch) => {
 		let data = await profileApi.getStatus(userId);
@@ -80,9 +88,10 @@ export const updatePhoto = (file) =>
 	async (dispatch) => {
 		let data = await profileApi.updatePhoto(file);
 		if (data.resultCode === 0) {
-			dispatch(setPhoto(data.data.photos));	
+			dispatch(setPhoto(data.data.photos));
 		}
-		
 	}
+
+
 
 export default profileReducer;
